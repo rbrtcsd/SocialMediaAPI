@@ -10,7 +10,8 @@ public class ApplicationDbContext : IdentityDbContext<UserEntity, IdentityRole<i
     public DbSet<PostsEntity> Posts { get; set; }
     public DbSet<CommentsEntity> Comments{ get; set; }
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-        : base(options) {}
+    : base(options){}
+    public DbSet<RepliesEntity> RepliesEntities{get; set;}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
