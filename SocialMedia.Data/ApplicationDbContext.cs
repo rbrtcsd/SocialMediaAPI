@@ -16,6 +16,7 @@ public class ApplicationDbContext : IdentityDbContext<UserEntity, IdentityRole<i
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.Entity<UserEntity>().ToTable("Users");
+         
             
     }
 }
