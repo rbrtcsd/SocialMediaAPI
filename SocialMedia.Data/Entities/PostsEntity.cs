@@ -10,6 +10,8 @@ namespace SocialMedia.Data.Entities
 {
     public class PostsEntity
     {
+        [Key]
+        public int Id { get; set; }
         [MaxLength(50), Required]
         public string Title { get; set; } = null!;
 
@@ -17,6 +19,6 @@ namespace SocialMedia.Data.Entities
         public string Text { get; set; } = null!;
         [ForeignKey("Id")]
         public int AuthorId { get; set; }  
-       public virtual ICollection<Comment> Comments { get; set; } = null!;
+       public virtual ICollection<CommentsEntity> Comments { get; set; } = null!;
     }
 }
