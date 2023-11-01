@@ -7,8 +7,8 @@ namespace SocialMedia.Data;
 
 public class ApplicationDbContext : IdentityDbContext<UserEntity, IdentityRole<int>, int>
 {
-
     public DbSet<PostsEntity> Posts { get; set; }
+    public DbSet<CommentsEntity> Comments{get; set;}
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options) {}
 
@@ -17,5 +17,7 @@ public class ApplicationDbContext : IdentityDbContext<UserEntity, IdentityRole<i
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.Entity<UserEntity>().ToTable("Users");
+       
+            
     }
 }
