@@ -7,6 +7,8 @@ namespace SocialMedia.Data;
 
 public class ApplicationDbContext : IdentityDbContext<UserEntity, IdentityRole<int>, int>
 {
+
+    public DbSet<PostsEntity> Posts { get; set; }
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options) {}
 
