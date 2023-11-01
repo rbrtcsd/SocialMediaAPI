@@ -17,8 +17,10 @@ namespace SocialMedia.Data.Entities
 
         [MaxLength(100), Required]
         public string Text { get; set; } = null!;
-        [ForeignKey("Id")]
-        public int AuthorId { get; set; }  
-       public virtual ICollection<CommentsEntity> Comments { get; set; } = null!;
+
+        [ForeignKey(nameof(UserEntity))]
+        public int UserId { get; set; }  
+
+        public virtual List<CommentsEntity> Comments { get; set; } = null!;
     }
 }

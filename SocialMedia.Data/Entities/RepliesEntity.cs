@@ -6,15 +6,18 @@ using Microsoft.AspNetCore.Identity;
 
 namespace SocialMedia.Data.Entities
 {
-    public class RepliesEntity : IdentityUser<int>
+    public class RepliesEntity
     {
-       
+        [Key]
+        public int Id { get; set; }
+
         [Required] 
         public string Text { get; set; } = null!;
-        [ForeignKey("Id")]
-        public int ParentId{get; set;}
-        [ForeignKey("Id")]
-        public int AuthorId{get; set;}
 
+        [ForeignKey(nameof(CommentsEntity))]
+        public int CommentsId{get; set;}
+
+        [ForeignKey(nameof(UserEntity))]
+        public int UserId{get; set;}
     }
 }

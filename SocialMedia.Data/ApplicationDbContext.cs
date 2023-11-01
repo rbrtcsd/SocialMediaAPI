@@ -11,14 +11,13 @@ public class ApplicationDbContext : IdentityDbContext<UserEntity, IdentityRole<i
     public DbSet<CommentsEntity> Comments{ get; set; }
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
     : base(options){}
-    public DbSet<RepliesEntity> RepliesEntities{get; set;}
+    public DbSet<RepliesEntity> Replies{get; set;}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.Entity<UserEntity>().ToTable("Users");
-       
-            
+        // modelBuilder.Entity<PostsEntity>().HasKey(comment => comment.Id);       
     }
 }
