@@ -8,7 +8,8 @@ namespace SocialMedia.Data;
 public class ApplicationDbContext : IdentityDbContext<UserEntity, IdentityRole<int>, int>
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-        : base(options) {}
+    : base(options){}
+    public DbSet<RepliesEntity> RepliesEntities{get; set;}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
