@@ -4,7 +4,6 @@ namespace SocialMedia.Services.Post;
 
 public interface IPostService
 {
-    Task<PostList?> CreatePostAsync(PostCreate request);
-    Task<IEnumerable<PostList>> GetAllPostsAsync();
-    // Task<PostDelete?> DeletePostAsync(PostDelete request);
+    Task<PostListItem?> CreatePostAsync(PostCreate request);
+    Task<IEnumerable<PostListItem>> GetAllPostsAsync();
 }

@@ -24,35 +24,34 @@ public class PostService : IPostService
         _dbContext = dbContext;
     }
 
-    [HttpPost("Create")]
-    public async Task<PostList?> CreatePostAsync(PostCreate request)
+    public async Task<PostListItem?> CreatePostAsync(PostCreate request)
+{
+    PostEntity entity = new()
     {
-        PostEntity entity = new()
-        {
-            Title = request.Title,
-            Text = request.Text,
-            AuthorId = _userId
-        };
+        Title = request.Title,
+        Text = request.Text,
+    };
 
-        _dbContext.Posts.Add(entity);
-        var numberOfChanges = await _dbContext.SaveChangesAsync();
+    _dbContext.Posts.Add(entity);
+    var numberOfChanges = await _dbContext.SaveChangesAsync();
 
-        if (numberOfChanges != 1)
-            return null;
+    if (numberOfChanges != 1)
+        return null;
 
-        PostList response = new()
-        {
-            Id = entity.Id,
-            Title = entity.Title
-        };
-        return response;
-    }
-
-    public async Task<IEnumerable<PostList>> GetAllPostsAsync()
+    PostListItem response = new()
     {
-        List<PostList> posts = await _dbContext.Posts
+        Id = entity.Id,
+        Title = entity.Title,
+        Text = entity.Text,
+    };
+    return response;
+}
+
+    public async Task<IEnumerable<PostListItem>> GetAllPostsAsync()
+    {
+        List<PostListItem> posts = await _dbContext.Posts
             .Where(entity => entity.AuthorId == _userId)
-            .Select(entity => new PostList
+            .Select(entity => new PostListItem
             {
                 Id = entity.Id,
                 Title = entity.Title

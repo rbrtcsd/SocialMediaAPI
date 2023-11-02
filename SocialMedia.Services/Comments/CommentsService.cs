@@ -1,8 +1,7 @@
 using System;
 using System.Net;
 using System.Threading.Tasks; 
-using Microsoft.EntityFrameworkCore; 
-
+using Microsoft.EntityFrameworkCore;
 using SocialMedia.Data;
 
 
@@ -18,8 +17,8 @@ namespace SocialMedia.Services.Comments
             _context = context;
         }
 
-        public async Task<bool> CreateCommentAsync(CommentCreate model)
-        /*It defines a method named CreateCommentAsync that takes a CommentCreate model as a parameter and returns a Task<bool>. This method is used to create a new comment in the database.*/
+
+        public async Task<bool> CreateCommentAsync(CommentModel model);
         {
             var newComment = new Comment
             {
@@ -28,11 +27,11 @@ namespace SocialMedia.Services.Comments
                 Author = model.Author
             };
 
-            _context.Comments.Add(newComment);
-            await _context.SaveChangesAsync();
+//             _context.Comments.Add(newComment);
+//             await _context.SaveChangesAsync();
 
 
-            return true;
-        }
-    }
-}
+//             return true;
+//         }
+//     }
+// }
