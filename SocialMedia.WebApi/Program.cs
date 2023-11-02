@@ -2,13 +2,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SocialMedia.Data;
 using SocialMedia.Data.Entities;
-using SocialMedia.Services.Comments;
+// using SocialMedia.Services.Comments;
 using SocialMedia.Services.Post;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddScoped<ICommentsService, CommentsService>();
+// builder.Services.AddScoped<ICommentsService, CommentsService>();
 builder.Services.AddScoped<IPostService, PostService>();
 builder.Services.AddHttpContextAccessor();
 

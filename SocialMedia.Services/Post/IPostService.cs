@@ -6,4 +6,5 @@ public interface IPostService
 {
     Task<PostList?> CreatePostAsync(PostCreate request);
     Task<IEnumerable<PostList>> GetAllPostsAsync();
+    // Task<PostDelete?> DeletePostAsync(PostDelete request);
 }

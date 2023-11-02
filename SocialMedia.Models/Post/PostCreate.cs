@@ -1,15 +1,16 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SocialMedia.Models.Post;
 
 public class PostCreate
 {
+
         [Required]
-        [MinLength(1, ErrorMessage =  "{0} must be at least {1} characters long.")]
-        [MaxLength(100, ErrorMessage = "{0} must be no more than {1} characters long.")]
+        [MaxLength(50, ErrorMessage = "Title cannot be more than 50 characters.")]
         public string Title {get; set;} = string.Empty;
 
         [Required]
-        [MaxLength(2000, ErrorMessage = "{0} must be no more than {1} characters long.")]
+        [MaxLength(100, ErrorMessage = "Text cannot be more than 100 characters.")]
         public string Text {get; set;} = string.Empty;
 }

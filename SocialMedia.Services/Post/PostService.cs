@@ -3,6 +3,7 @@ using SocialMedia.Data.Entities;
 using SocialMedia.Models.Post;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SocialMedia.Services.Post;
 public class PostService : IPostService
@@ -23,6 +24,7 @@ public class PostService : IPostService
         _dbContext = dbContext;
     }
 
+    [HttpPost("Create")]
     public async Task<PostList?> CreatePostAsync(PostCreate request)
     {
         PostEntity entity = new()
