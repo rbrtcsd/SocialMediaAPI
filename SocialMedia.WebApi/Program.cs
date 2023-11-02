@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using SocialMedia.Data;
 using SocialMedia.Data.Entities;
 using SocialMedia.Services.User;
+using SocialMedia.Services.Comments;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,8 @@ builder.Services.AddScoped<IUserService, UserService>();
 // Connection string and DbContext setup
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddScoped<ICommentsService, CommentsService>();
 
 builder.Services.AddDefaultIdentity<UserEntity>(options =>
 {
