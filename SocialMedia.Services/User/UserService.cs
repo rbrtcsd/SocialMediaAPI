@@ -32,7 +32,7 @@ public class UserService : IUserService
         UserEntity entity = new()
         {
             Email = model.Email,
-            UserName = model.UserName,
+            UserName = model.UserName
         };
 
         IdentityResult registerResult = await _userManager.CreateAsync(entity, model.Password);
