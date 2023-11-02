@@ -30,11 +30,11 @@ namespace SocialMedia.Services.Comments
                 Author = model.Author
             };
 
-            _context.Comments.Add(newComment);
-            await _context.SaveChangesAsync();
+//             _context.Comments.Add(newComment);
+//             await _context.SaveChangesAsync();
 
 
-            return true;
-        }
-    }
-}
+//             return true;
+//         }
+//     }
+// }

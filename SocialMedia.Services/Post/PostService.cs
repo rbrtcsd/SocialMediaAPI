@@ -24,7 +24,7 @@ public class PostService : IPostService
         _dbContext = dbContext;
     }
 
-    public async Task<PostListItem?> CreateNoteAsync(PostCreate request)
+    public async Task<PostListItem?> CreatePostAsync(PostCreate request)
 {
     PostEntity entity = new()
     {
