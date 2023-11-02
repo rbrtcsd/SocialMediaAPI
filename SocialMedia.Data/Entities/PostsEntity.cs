@@ -1,28 +1,20 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
 
-namespace SocialMedia.Data.Entities
+namespace SocialMedia.Data.Entities;
+
+public class PostEntity
 {
-    public class PostsEntity
-    {
-        [Key]
-        public int Id { get; set; }
-
-        [MaxLength(50), Required]
-        public string Title { get; set; } = null!;
-
-        [MaxLength(100), Required]
-        public string Text { get; set; } = null!;
-
-        [ForeignKey("UserEntity")]
-        public int UserId { get; set; } 
-        public virtual UserEntity User { get; set; } = null!;
-
-        public virtual List<CommentsEntity> Comments { get; set; } = null!;
-    }
+    [Key]
+    public int Id {get; set;}
+    [Required]
+    [ForeignKey(nameof(Author))]
+    public int AuthorId {get; set;}
+    public UserEntity Author {get; set;} = null!;
+    [Required, MinLength(1), MaxLength(100)]
+    public string Title {get; set;} = string.Empty;
+    [Required, MinLength(1), MaxLength(2000)]
+    public string Text {get; set;} = string.Empty;
+    //*virtual list of Comments
+    //*virtual list of Likes
 }

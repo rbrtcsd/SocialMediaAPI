@@ -2,24 +2,20 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SocialMedia.Data;
 using SocialMedia.Data.Entities;
-<<<<<<< HEAD
 using SocialMedia.Services.Comments;
-=======
 using SocialMedia.Services.Post;
->>>>>>> d083b4b (Added framework for PostService and IPostService)
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped<IPostService, PostService>();
-
 // Add services to the container.
+builder.Services.AddScoped<ICommentsService, CommentsService>();
+builder.Services.AddScoped<IPostService, PostService>();
+builder.Services.AddHttpContextAccessor();
+
 
 // Connection string and DbContext setup
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
-
-builder.Services.AddScoped<ICommentsService, CommentsService>();
-
 builder.Services.AddDefaultIdentity<UserEntity>(options =>
 {
     // Password configuration, optional
