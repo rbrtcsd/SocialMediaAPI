@@ -1,10 +1,10 @@
-// using System;
-// using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 
-// namespace SocialMedia.Services.Comments
-// {
-//     public interface ICommentsService
-//     {
+namespace SocialMedia.Services.Comments
+{
+    public interface ICommentsService
+    {
      
-//     }
-// }
+    }
+}
