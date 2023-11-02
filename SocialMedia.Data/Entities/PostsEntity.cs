@@ -19,4 +19,7 @@ public class PostEntity
     
     [Required, MinLength(1), MaxLength(2000)]
     public string Text {get; set;} = string.Empty;
+
+    // public virtual List<Comments> { get; set; };
+
 }

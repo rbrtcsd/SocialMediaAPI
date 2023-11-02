@@ -4,12 +4,12 @@ using SocialMedia.Data;
 using SocialMedia.Data.Entities;
 using SocialMedia.Services.Post;
 using SocialMedia.Services.User;
-using SocialMedia.Services.Comments;
+// using SocialMedia.Services.Comments;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddScoped<ICommentsService, CommentsService>();
+// builder.Services.AddScoped<ICommentsService, CommentsService>();
 builder.Services.AddScoped<IPostService, PostService>();
 builder.Services.AddHttpContextAccessor();
 
@@ -19,11 +19,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddScoped<IUserService, UserService>();
 
-// Connection string and DbContext setup
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
-
-builder.Services.AddScoped<ICommentsService, CommentsService>();
+// builder.Services.AddScoped<ICommentsService, CommentsService>();
 
 builder.Services.AddDefaultIdentity<UserEntity>(options =>
 {
