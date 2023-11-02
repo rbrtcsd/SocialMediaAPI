@@ -2,9 +2,15 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SocialMedia.Data;
 using SocialMedia.Data.Entities;
+<<<<<<< HEAD
 using SocialMedia.Services.Comments;
+=======
+using SocialMedia.Services.Post;
+>>>>>>> d083b4b (Added framework for PostService and IPostService)
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<IPostService, PostService>();
 
 // Add services to the container.
 

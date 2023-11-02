@@ -11,15 +11,15 @@ namespace SocialMedia.Data.Entities
         [Key]
         public int Id { get; set; }
 
-        [Required] 
+        [Required]
         public string Text { get; set; } = null!;
 
         [ForeignKey("CommentsEntity")]
-        public int CommentsId{get; set;}
+        public int CommentsId { get; set; }
         public virtual CommentsEntity Comments { get; set; } = null!;
 
         [ForeignKey("UserEntity")]
-        public int UserId{get; set;}
+        public int UserId { get; set; }
         public virtual UserEntity User { get; set; } = null!;
     }
 }

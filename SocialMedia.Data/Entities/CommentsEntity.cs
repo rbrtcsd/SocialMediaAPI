@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SocialMedia.Data.Entities;
 
-public class CommentsEntity 
+public class CommentsEntity
 {
     [Key]
     public int Id { get; set; }
