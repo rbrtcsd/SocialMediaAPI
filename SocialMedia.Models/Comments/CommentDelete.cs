@@ -2,11 +2,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SocialMedia.Models.Comments;
 
-public class CommentModel
+public class CommentDelete
 {
 
-    [Required]   
-    [MaxLength(100)]
     public string? Text { get; set; }
+
+
 
 }
