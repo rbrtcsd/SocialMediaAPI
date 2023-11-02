@@ -9,4 +9,6 @@ public class CommentModel
     [MaxLength(100)]
     public string? Text { get; set; }
 
+    public int PostId {get; set;}
+
 }
