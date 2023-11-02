@@ -7,10 +7,10 @@ public class PostCreate
 {
 
         [Required]
-        [MaxLength(50, ErrorMessage = "Title cannot be more than 50 characters.")]
+        [MaxLength(50, ErrorMessage = "{0} must be at least {1} characters long.")]
         public string Title {get; set;} = string.Empty;
 
         [Required]
-        [MaxLength(100, ErrorMessage = "Text cannot be more than 100 characters.")]
+        [MaxLength(100, ErrorMessage = "{0} must be no more than {1} characters long.")]
         public string Text {get; set;} = string.Empty;
 }
