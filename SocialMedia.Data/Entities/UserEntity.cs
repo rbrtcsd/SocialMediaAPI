@@ -14,5 +14,6 @@ namespace SocialMedia.Data.Entities
 
         [MaxLength(100)]
         public string? LastName { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 }

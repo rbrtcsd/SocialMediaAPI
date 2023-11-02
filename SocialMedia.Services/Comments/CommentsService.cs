@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SocialMedia.Data;
 
+
 namespace SocialMedia.Services.Comments
 {
     public class CommentsService : ICommentsService
@@ -16,12 +17,8 @@ namespace SocialMedia.Services.Comments
             _context = context;
         }
 
-<<<<<<< HEAD
-        public async Task<bool> CreateCommentAsync(CommentModel model)
-=======
-        public async Task<bool> CreateCommentAsync(CommentCreate model)
-        /*It defines a method named CreateCommentAsync that takes a CommentCreate model as a parameter and returns a Task<bool>. This method is used to create a new comment in the database.*/
->>>>>>> 0c7709a (second try)
+
+        public async Task<bool> CreateCommentAsync(CommentModel model);
         {
             var newComment = new Comment
             {
