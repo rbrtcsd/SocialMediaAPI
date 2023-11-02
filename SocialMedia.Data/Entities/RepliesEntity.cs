@@ -14,10 +14,12 @@ namespace SocialMedia.Data.Entities
         [Required] 
         public string Text { get; set; } = null!;
 
-        [ForeignKey(nameof(CommentsEntity))]
+        [ForeignKey("CommentsEntity")]
         public int CommentsId{get; set;}
+        public virtual CommentsEntity Comments { get; set; } = null!;
 
-        [ForeignKey(nameof(UserEntity))]
+        [ForeignKey("UserEntity")]
         public int UserId{get; set;}
+        public virtual UserEntity User { get; set; } = null!;
     }
 }

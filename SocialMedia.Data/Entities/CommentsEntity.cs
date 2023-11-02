@@ -10,14 +10,17 @@ public class CommentsEntity
     [Key]
     public int Id { get; set; }
 
-    [ForeignKey(nameof(UserEntity))]
-    public int UserId { get; set; }
-
-    [ForeignKey(nameof(PostsEntity))]
-    public int PostId { get; set; }
-
-    [MaxLength(300)]
     public string? Text { get; set; }
 
-    public virtual List<PostsEntity> Posts { get; set; } = null!;
+    [ForeignKey("UserEntity")]
+    public int UserId { get; set; }
+    public virtual UserEntity User { get; set; } = null!;
+
+    [ForeignKey("PostsEntity")]
+    public int PostId { get; set; }
+    public virtual PostsEntity Post { get; set; } = null!;
+
+    // [MaxLength(300)]
+
+    // public virtual List<PostsEntity> Posts { get; set; } = null!;
 }
