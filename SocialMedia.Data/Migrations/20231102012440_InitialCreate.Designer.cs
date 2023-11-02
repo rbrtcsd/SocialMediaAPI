@@ -12,7 +12,7 @@ using SocialMedia.Data;
 namespace SocialMedia.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231102010658_InitialCreate")]
+    [Migration("20231102012440_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
