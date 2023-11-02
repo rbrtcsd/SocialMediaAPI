@@ -1,7 +1,7 @@
 using System;
 using System.Net;
-using System.Threading.Tasks; // Add the missing using statement for async
-using Microsoft.EntityFrameworkCore; // Add the appropriate namespace for Entity Framework
+using System.Threading.Tasks; 
+using Microsoft.EntityFrameworkCore; 
 using SocialMedia.Data;
 
 namespace SocialMedia.Services.Comments
