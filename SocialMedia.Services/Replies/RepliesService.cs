@@ -1,14 +1,15 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using SocialMedia.Data;
 using SocialMedia.Data.Entities;
 using SocialMedia.Models.Replies;
-using SocialMedia.Service.Replise;
+using SocialMedia.Services.Replies;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace SocialMedia.Services.User;
+namespace SocialMedia.Services.Replies;
 
 public class RepliesService : IRepliesService
 {
@@ -32,9 +33,19 @@ public class RepliesService : IRepliesService
              await _context.SaveChangesAsync();
 
              return true;
-        }
-   
+        }  
 }
+    public async Task<bool>GetRepliesbyCommentId(int CommentsId)
+    {
+      RepliesEntity? entity = await DbContext.Replies.Find(CommentsId);
+      if (entity is null)
+      return true;
+    }
+     
+    
+
+   
+
 
 
 
