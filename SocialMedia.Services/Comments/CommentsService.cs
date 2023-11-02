@@ -3,6 +3,9 @@ using System.Net;
 using System.Threading.Tasks; 
 using Microsoft.EntityFrameworkCore; 
 
+using SocialMedia.Data;
+
+
 namespace SocialMedia.Services.Comments
 {
     public class CommentsService : ICommentsService
