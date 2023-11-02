@@ -1,9 +1,7 @@
 using SocialMedia.Models.Replies;
-using SocialMedia.Services.User;
-
-namespace SocialMedia.Service.Replise;
+namespace SocialMedia.Service.Replies;
 
 public interface IRepliesService
 {
-    Task<bool>CreateReplyAsync(CreateReplies Model);
+      public async Task<bool>CreateReplyAsync(CreateReplies Model)
 }
