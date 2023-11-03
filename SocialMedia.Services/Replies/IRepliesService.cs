@@ -1,7 +1,11 @@
 using SocialMedia.Models.Replies;
-namespace SocialMedia.Service.Replies;
+
+namespace SocialMedia.Services.Replies;
 
 public interface IRepliesService
 {
-      public async Task<bool>CreateReplyAsync(CreateReplies Model)
+       Task<bool>CreateReplyAsync(CreateReplies Model);
+     Task<bool>GetRepliesbyCommentId(int CommentsId);
+      
+
 }
