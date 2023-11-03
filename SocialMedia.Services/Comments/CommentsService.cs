@@ -1,6 +1,6 @@
 using System;
 using System.Net;
-using System.Threading.Tasks; 
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SocialMedia.Models.Comments;
 
@@ -23,17 +23,17 @@ namespace SocialMedia.Services.Comments
         {
             var newComment = new Comment
             {
-        
+
                 Text = model.Text,
                 Post = model.PostId,
-    
+
             };
 
             _context.Comments.Add(newComment);
-           await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
 
 
             return true;
         }
-     }
+    }
 }
