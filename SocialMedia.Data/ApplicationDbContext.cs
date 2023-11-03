@@ -27,12 +27,20 @@ public class ApplicationDbContext : IdentityDbContext<UserEntity, IdentityRole<i
             .HasForeignKey(ce => ce.AuthorId)
             .OnDelete(DeleteBehavior.Restrict);
 
+            // modelBuilder.Entity<LikesEntity>()
+            // .HasOne(l => l.Id)
+            // .WithMany(u => u.Likes)
+            // .HasForeignKey(l => l.UserId)
+            // .OnDelete(DeleteBehavior.Restrict);
 
-        // modelBuilder.Entity<CommentsEntity>()
-        //     .HasOne(ce => ce.User) // Specifies that Comment has one User
-        //     .WithMany() // Specifies that User has many Comments (no navigation property back)
-        //     .HasForeignKey(ce => ce.UserId) // Specifies the foreign key in Comment
-        //     .OnDelete(DeleteBehavior.Restrict); // This prevents cascading deletes
+            base.OnModelCreating(modelBuilder);
+
+
+        modelBuilder.Entity<CommentsEntity>()
+            .HasOne(ce => ce.User) // Specifies that Comment has one User
+            .WithMany() // Specifies that User has many Comments (no navigation property back)
+            .HasForeignKey(ce => ce.UserId) // Specifies the foreign key in Comment
+            .OnDelete(DeleteBehavior.Restrict); // This prevents cascading deletes
 
         // modelBuilder.Entity<CommentsEntity>()
         //     .HasOne(ce => ce.Post) // Specifies that Comment has one Post

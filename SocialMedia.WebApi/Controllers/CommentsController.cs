@@ -1,4 +1,7 @@
-using Microsoft.AspNetCore.Mvc; 
+using Microsoft.AspNetCore.Mvc;
+using SocialMedia.Data.Entities;
+using SocialMedia.Models.Comments;
+using SocialMedia.Services.Comments;
 
 namespace SocialMedia.Controllers;
 {
@@ -13,20 +16,20 @@ namespace SocialMedia.Controllers;
         }
 
         [HttpPost("posts/{postId}/comments")]
-        public async Task<IActionResult> CreateComment(int postId, [FromBody] CommentCreateModel commentModel)
+        public async Task<IActionResult> CreateComment(int postId, [FromBody] CommentCreate model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var comment = new Comment
+            CommentsEntity entity = new()
             {
-                PostId = postId,
-                Text = commentModel.Text,
+                PostId = model.PostId,
+                Text = model.Text,
             };
 
-            await _commentsService.CreateCommentAsync(comment);
+            await _commentsService.CreateCommentAsync(entity);
 
             return CreatedAtAction("GetCommentById", new { commentId = comment.Id }, comment);
         }

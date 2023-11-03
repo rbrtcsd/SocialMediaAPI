@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using SocialMedia.Models.Comments;
 
 using SocialMedia.Data;
+using SocialMedia.Data.Entities;
 
 
 namespace SocialMedia.Services.Comments
@@ -18,18 +19,18 @@ namespace SocialMedia.Services.Comments
             _context = context;
         }
 
-        public async Task<bool> CommentCreateAsync(CommentCreate model)
+        public async Task<bool> CreateCommentAsync(CommentCreate model)
 
         {
-            var newComment = new Comment
+            CommentsEntity entity = new()
             {
 
                 Text = model.Text,
-                Post = model.PostId,
+                PostId = model.PostId,
 
             };
 
-            _context.Comments.Add(newComment);
+            _context.Comments.Add(entity);
             await _context.SaveChangesAsync();
 
 

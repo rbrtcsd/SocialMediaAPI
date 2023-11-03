@@ -16,13 +16,13 @@ public class RepliesService : IRepliesService
     }
     public async Task<bool> CreateReplyAsync(CreateReplies Model)
     {
-        var newReply = new CreateReplies()
+        RepliesEntity entity = new()
         {
             Text = Model.Text,
             CommentsId = Model.CommentsId,
         };
 
-        _context.Replies.Add(newReply);
+        _context.Replies.Add(entity);
         await _context.SaveChangesAsync();
 
         return true;
