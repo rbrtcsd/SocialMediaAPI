@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
+using SocialMedia.Models.Comments;
 
 namespace SocialMedia.Services.Comments
 {
     public interface ICommentsService
     {
-     Task<bool> CreateCommentAsync(CommentModel model);
-     
+        Task<bool> CreateCommentAsync(CommentCreate model);
 
     }
 }
