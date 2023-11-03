@@ -38,11 +38,10 @@ public class UserController : ControllerBase
         return BadRequest(new TextResponse("User could not be registered."));
     }
 
-    [Authorize]
     [HttpGet("{userId:int}")]
     public async Task<IActionResult> GetById([FromRoute] int userId)
     {
-        UserDetail? detail = await _userService.GetUserByIdAsync(userId);
+        UserDetail detail = await _userService.GetUserByIdAsync(userId);
 
         if (detail is null)
         {

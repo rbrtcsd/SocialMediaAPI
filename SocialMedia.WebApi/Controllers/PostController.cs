@@ -7,7 +7,6 @@ using SocialMedia.Services.Post;
 
 namespace SocialMedia.WebAPI.Controllers;
 
-[Authorize]
 [Route("api/[controller]")]
 [ApiController]
 public class PostController : ControllerBase
@@ -19,24 +18,24 @@ public class PostController : ControllerBase
         _postService = postService;
     }
 
-[HttpPost("Create")]
-public async Task<IActionResult> CreateNote([FromBody] PostCreate request)
-{
-    if (!ModelState.IsValid)
-        return BadRequest(ModelState);
+    [HttpPost("Create")]
+    public async Task<IActionResult> CreatePost([FromBody] PostCreate request)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
 
-    var response = await _postService.CreateNoteAsync(request);
-    if (response is not null)
-        return Ok(response);
+        var response = await _postService.CreatePostAsync(request);
+        if (response is not null)
+            return Ok(response);
 
-    return BadRequest(new TextResponse("Could not create note."));
-}
+        return BadRequest(new TextResponse("Could not create note."));
+    }
 
-[HttpGet]
-public async Task<IActionResult> GetAllPosts()
-{
-    var posts = await _postService.GetAllPostsAsync();
-    return Ok(posts);
-}
+    [HttpGet]
+    public async Task<IActionResult> GetAllPosts()
+    {
+        var posts = await _postService.GetAllPostsAsync();
+        return Ok(posts);
+    }
 
 }

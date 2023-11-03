@@ -8,13 +8,12 @@ namespace SocialMedia.Data;
 
 public class ApplicationDbContext : IdentityDbContext<UserEntity, IdentityRole<int>, int>
 {
-    public DbSet<PostEntity> Posts { get; set; }
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
     : base(options) { }
-
-    public ApplicationDbContext()
-    {
-    }
+    public DbSet<PostEntity> Posts { get; set; }
+    public DbSet<CommentsEntity> Comments { get; set; }
+    public DbSet<RepliesEntity> Replies { get; set; }
+    public DbSet<LikesEntity> Likes { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
