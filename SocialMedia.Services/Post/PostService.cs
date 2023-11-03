@@ -3,7 +3,6 @@ using SocialMedia.Data.Entities;
 using SocialMedia.Models.Post;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
 
 namespace SocialMedia.Services.Post;
 public class PostService : IPostService
@@ -25,27 +24,27 @@ public class PostService : IPostService
     }
 
     public async Task<PostListItem?> CreatePostAsync(PostCreate request)
-{
-    PostEntity entity = new()
     {
-        Title = request.Title,
-        Text = request.Text,
-    };
+        PostEntity entity = new()
+        {
+            Title = request.Title,
+            Text = request.Text,
+        };
 
-    _dbContext.Posts.Add(entity);
-    var numberOfChanges = await _dbContext.SaveChangesAsync();
+        _dbContext.Posts.Add(entity);
+        var numberOfChanges = await _dbContext.SaveChangesAsync();
 
-    if (numberOfChanges != 1)
-        return null;
+        if (numberOfChanges != 1)
+            return null;
 
-    PostListItem response = new()
-    {
-        Id = entity.Id,
-        Title = entity.Title,
-        Text = entity.Text,
-    };
-    return response;
-}
+        PostListItem response = new()
+        {
+            Id = entity.Id,
+            Title = entity.Title,
+            Text = entity.Text,
+        };
+        return response;
+    }
 
     public async Task<IEnumerable<PostListItem>> GetAllPostsAsync()
     {
